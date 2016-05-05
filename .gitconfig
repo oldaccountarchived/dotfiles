@@ -1,13 +1,9 @@
 [user]
-	email = jacob@jacobejenkins.com
+	email = me@jacobejenkins.com
 	name = Jacob Jenkins
 [core]
 	editor = vim
 	excludesfile = /Users/jacob/.gitignore-global
-[github]
-	user = jacobj
-	password = cnh0224
-	oauth-token = aec919a9797f41ad56818a62cde2e88840f5d32e
 [init]
 	templatedir = /Users/jacob/.git-templates
 [alias]
