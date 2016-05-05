@@ -1,3 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/Users/jacob'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/usr/local/var/GeoIP'
+let g:netrw_dirhist_2='/Users/jacob/Developer/GleimCheck'
+let g:netrw_dirhist_3='/Users/jacob/Developer/GleimCheck/test'
+let g:netrw_dirhist_4='/Users/jacob/Developer/keystone-test/node_modules'
+let g:netrw_dirhist_5='/Users/jacob/Developer/tc-vmcontrol/.git'

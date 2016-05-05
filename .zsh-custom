@@ -3,6 +3,18 @@ if [ "$TERM" != "eterm-color" ]; then
     if [ "$TMUX" = "" ]; then tmux; fi
 fi
 
+# Save Emacs from serious pane when trying to use Tramp.
+if [[ $TERM == "dumb" ]]; then # in Emacs
+    PS1='%(?..[%?])%!:%~%# '
+    # for tramp to not hang, need the following. cf:
+    # http://www.emacswiki.org/emacs/TrampMode
+    unsetopt zle
+    unsetopt prompt_cr
+    unsetopt prompt_subst
+    unfunction precmd
+    unfunction preexec
+fi
+
 # VirtualEnv stuff
 # export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 # export WORKON_HOME=$HOME/.virtualenvs
@@ -14,29 +26,33 @@ fi
 # User configuration
 alias ls="ls --color=auto -GF"
 
-# OS X specific
-alias rmlogs="sudo rm /private/var/log/asl/*.asl"
-alias showhidden="defaults write com.apple.finder AppleShowAllFiles ON"
-alias hidehidden="defaults write com.apple.finder AppleShowAllFiles OFF"
-alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs "$@""
-alias todo="echo && cat ~/Org/todo.org | grep 'TODO' && echo"
-alias archey="archey -c"
-alias hibernateon="sudo pmset -a hibernatemode 5"
-alias hibernateoff="sudo pmset -a hibernatemode 0"
+if [[ `uname` == 'Darwin' ]] ; then 
+    # OS X specific
+    alias rmlogs="sudo rm /private/var/log/asl/*.asl"
+    alias showhidden="defaults write com.apple.finder AppleShowAllFiles ON"
+    alias hidehidden="defaults write com.apple.finder AppleShowAllFiles OFF"
+    alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs "$@""
+    alias todo="echo && cat ~/Org/todo.org | grep 'TODO' && echo"
+    alias hibernateon="sudo pmset -a hibernatemode 5"
+    alias hibernateoff="sudo pmset -a hibernatemode 0"
+
+    # Path
+    export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:/usr/local/opt/llvm/bin:/usr/local/opt/llvm/share/llvm:$PATH"
+fi
+
 alias jsonify="python -m json.tool | pygmentize -l javascript"
-alias gitrs="git fetch; git reset --hard origin/master"
 alias ec="emacsclient"
-
-# Oracle Garbage
-export DYLD_LIBRARY_PATH="$HOME/instantclient_11_2"
-export ORACLE_HOME="$HOME/instantclient_11_2"
-
-# Path
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:/usr/local/opt/llvm/bin:/usr/local/opt/llvm/share/llvm:$PATH"
+alias gitrs="git fetch; git reset --hard origin/master"
 
 # Pretty LS_COLORS
 eval `dircolors ~/.dircolors.ansi-universal`
 
-# Rbenv
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
+ #Rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+export GOPATH=$HOME/Developer/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
