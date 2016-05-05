@@ -1,7 +1,8 @@
 #!/bin/bash
 shopt -s dotglob
-DIR=$(dirname $(readlink -f "${BASH_SOURCE[0]}"))
-FILES=".spacemacs .tmux .tmux.conf .vim .vimrc .zsh-custom .gitconfig. gitignore-global"
+DIR="`dirname \"$0\"`"
+DIR="`( cd \"$DIR\" && pwd )`"
+FILES=".spacemacs .tmux .tmux.conf .vim .vimrc .zsh-custom .gitconfig .gitignore-global"
 for file in $FILES; do
     SRC="${DIR}/${file}"
     DEST="${HOME}/${file}"
