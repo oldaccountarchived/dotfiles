@@ -7,15 +7,30 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'bling/vim-airline'
+
+" Markdown support
+Plugin 'plasticboy/vim-markdown'
+
+" JavaScript and React JSX
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+
+" IDE like additions
+Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/YouCompleteMe'
+
+" Additional
 Plugin 'kien/ctrlp.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-vinegar'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Raimondi/delimitMate'
+Bundle 'edkolev/tmuxline.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -24,21 +39,43 @@ filetype plugin indent on
 set encoding=utf-8
 syntax on
 set number
-set expandtab
 set paste
 set ruler
 set laststatus=2
-set tabstop=4
-colorscheme solarized 
-set t_Co=256
+set backspace=2
 set linespace=0
-let base16colorspace=256
+
+" Access system clipboard
+set clipboard=unnamed
+
+" 2 spaces instead of tabs
+set tabstop=2
+set expandtab
+set shiftwidth=2
+
+" Set column for character limit
+set colorcolumn=80
+
+" Please don't wrap
+set nowrap
+
+" Show a visual line under the cursor's current line
+set cursorline
+
+" show the matching part of the pair for [] {} and ()
+set showmatch
+
+" enable all Python syntax highlighting features
+let python_highlight_all = 1
+
+" Colorscheme
+set t_Co=256
+set background=light
+colorscheme solarized
 
 " Airline
 let g:airline_powerline_fonts = 1
-
-" NERDTREE
-" nmap <silent> <F3> :NERDTreeToggle<CR>
+let g:airline#extensions#tabline#enabled = 1
 
 " Better navigation of Vim Splits
 nnoremap <C-J> <C-W><C-J>
@@ -48,3 +85,17 @@ nnoremap <C-H> <C-W><C-H>
 
 " Sometimes, I use the mouse. come at me, bro.
 set mouse=a
+
+let g:javascript_conceal_function       = "ƒ"
+let g:javascript_conceal_null           = "ø"
+let g:javascript_conceal_this           = "@"
+let g:javascript_conceal_return         = "⇚"
+let g:javascript_conceal_undefined      = "¿"
+let g:javascript_conceal_NaN            = "ℕ"
+let g:javascript_conceal_prototype      = "¶"
+let g:javascript_conceal_static         = "•"
+let g:javascript_conceal_super          = "Ω"
+let g:javascript_conceal_arrow_function = "⇒"
+
+" CTRLP Ignore
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
