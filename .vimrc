@@ -16,7 +16,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
 " IDE like additions
-Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'Valloric/YouCompleteMe'
 
 " Additional
@@ -30,7 +30,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Raimondi/delimitMate'
-Bundle 'edkolev/tmuxline.vim'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'arcticicestudio/nord-vim'
 
 call vundle#end()
 filetype plugin indent on
