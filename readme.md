@@ -1,2 +1,2 @@
-# Dotfiles !Emacs
-Dotfiles for things that aren't Emacs.
+# Dotfiles
+Dotfiles for various programs, managed with GNU stow
