@@ -94,7 +94,7 @@ let python_highlight_all = 1
 
 " Colorscheme
 set t_Co=256
-set background=light
+set background=dark
 colorscheme solarized
 
 " Airline
