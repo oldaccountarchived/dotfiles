@@ -30,13 +30,6 @@ Plug 'justinmk/vim-dirvish'
 
 " Colors
 Plug 'arcticicestudio/nord-vim'
-Plug 'dracula/vim'
-Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
-Plug 'ayu-theme/ayu-vim'
-Plug 'cocopon/iceberg.vim'
-Plug 'lifepillar/vim-gruvbox8'
-Plug 'tomasiser/vim-code-dark'
 
 " Appearance
 Plug 'edkolev/tmuxline.vim'
