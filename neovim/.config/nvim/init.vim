@@ -36,6 +36,7 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'ryanoasis/vim-devicons'
 
 " Utility
 Plug 'tpope/vim-eunuch'
@@ -80,8 +81,8 @@ set showmatch
 " More room for coc.nvim
 set cmdheight=2
 
-" Show tabline
-" set showtabline=2
+" Hide tabline
+set showtabline=0
 
 if (has("termguicolors"))
   set termguicolors
@@ -99,7 +100,7 @@ colorscheme nord
 let g:airline_powerline_fonts = 1
 let g:tmuxline_powerline_separators = 1
 let g:airline#extensions#tmuxline#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 
 " Better navigation of Vim Splits
 nnoremap <C-J> <C-W><C-J>
@@ -108,12 +109,15 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " FZF
-nnoremap <c-p> :FZF<cr>
+nnoremap <c-f> :FZF<cr>
+" Trying this out for size
+nnoremap <leader><leader> :FZF<cr>
 nnoremap <c-f> :Ag<cr>
+nnoremap <leader>b :Buffers<cr>
 
 " JSX Pretty config
 let g:vim_jsx_pretty_disable_tsx = 0
-let g:vim_jsx_pretty_colorful_config = 0
+let g:vim_jsx_pretty_colorful_config = 1
 
 " Language settings
 let g:jsx_ext_required = 0
@@ -140,3 +144,6 @@ nmap <leader>rn <Plug>(coc-rename)
 " Formatting selected code.
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+
+" Reload this file
+nnoremap <Leader>sv :source $MYVIMRC<CR>
